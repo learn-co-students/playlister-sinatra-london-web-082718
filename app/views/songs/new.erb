@@ -1,0 +1,14 @@
+<form action="/songs" method="post">
+  <label for="name">Name:
+    <input type="text" name="name" id="name" value="">
+  </label>
+  <label for="artist">Artist:
+    <input type="text" name="artist" id="artist" value="">
+  </label>
+  <label for="genres">Genres:
+     <% Genre.all.each do |g| %>
+      <%= g.name %>
+       <input id="<%= g.name %>" type="checkbox" name="genres[]" value="<%= g.id %>">
+     <% end %></label>
+ <input type="submit">
+</form>
