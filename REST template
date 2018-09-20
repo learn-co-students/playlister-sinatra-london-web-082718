@@ -1,0 +1,31 @@
+get "/things" do
+  @things = Thing.all
+  erb :"things/index"
+end
+get "/things/new" do
+  @related_things = RelatedThing.all
+  erb :"things/new"
+end
+get "/things/:id" do
+  @thing = Thing.find(params[:id])
+  erb :"things/show"
+end
+post "/things" do
+  thing = Thing.create(params[:thing])
+  redirect "/things/#{thing.id}"
+end
+get "/things/:id/edit" do
+  @thing = Thing.find(params[:id])
+  @related_things = RelatedThing.all
+  erb :"things/edit"
+end
+patch "/things/:id" do
+  thing = Thing.find(params[:id])
+  thing.update(params[:thing])
+  redirect "/things/#{thing.id}"
+end
+delete "/things/:id" do
+  thing = Thing.find(params[:id])
+  thing.destroy
+  redirect "/things"
+end
