@@ -1,0 +1,5 @@
+<h1>All genres!</h1>
+<h2> Total genres : (<%= @genres.size %>) </h2>
+<% @genres.order(:name).each do |genre|%>
+<p><a href="/genres/<%= genre.slug %>"> <%= genre.name %></a></p>
+<% end %>
