@@ -1,0 +1,11 @@
+<h1><%= @genre.name.upcase %></h1>
+
+<h2>The genre's artists are :</h2>
+<% @genre.artists.each do |art| %>
+<p><h3><a href="/artists/<%=art.slug%>"><%=art.name%></a></h3></p>
+<% end %>
+
+<h2>The genre's songs are :</h2>
+<% @genre.songs.each do |song| %>
+<p><h3><a href="/songs/<%=song.slug%>"><%=song.name%></a></h3></p>
+<% end %>
