@@ -1,0 +1,5 @@
+<h1>All artistssssssssss!</h1>
+<h2> Total artists : (<%= @artists.size %>) </h2>
+<% @artists.order(:name).each do |art|%>
+<p> <%= art.name %></p>
+<% end %>
